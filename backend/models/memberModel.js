@@ -7,7 +7,7 @@ const memberSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    requuired: true,
+    required: true,
   },
   password: {
     type: String,
@@ -16,11 +16,9 @@ const memberSchema = new mongoose.Schema({
   gender: {
     type: String,
     enum: ["male", "female", "other"],
-    required:true,
   },
   age: {
     type: Number,
-    required: true,
   },
   weight: {
     type: Number,
@@ -32,6 +30,7 @@ const memberSchema = new mongoose.Schema({
   dietPlans: [{ type: mongoose.Schema.Types.ObjectId, ref: "dietPlan" }],
 });
 
-const memberModel = mongoose.Model.User || mongoose.model("User", memberSchema);
+const memberModel =
+  mongoose.Model.Member || mongoose.model("Member", memberSchema);
 
 export default memberModel;

@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 
 import db_Connect from "./db/dbConfig.js";
+import memberRouter from "./routes/memberRoutes.js";
 
 const app = express();
 
@@ -10,7 +11,9 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(express.urlencoded({ extended: true }));
+//middlewares
+app.use(express.urlencoded({ extended: false }));
+app.use("/api/member", memberRouter);
 
 app.get("/", (req, res) => {
   res.send("API is getting!");
