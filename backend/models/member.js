@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const memberSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -13,10 +13,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  role: {
+  gender: {
     type: String,
-    enum: ["client", "coach"],
-    default: "client",
+    enum: ["male", "female", "other"],
+    required:true,
   },
   age: {
     type: Number,
@@ -24,7 +24,6 @@ const userSchema = new mongoose.Schema({
   },
   weight: {
     type: Number,
-    required: true,
   },
   height: {
     type: Number,
@@ -33,6 +32,6 @@ const userSchema = new mongoose.Schema({
   dietPlans: [{ type: mongoose.Schema.Types.ObjectId, ref: "dietPlan" }],
 });
 
-const userModel = mongoose.Model.User || mongoose.model("User", userSchema);
+const memberModel = mongoose.Model.User || mongoose.model("User", memberSchema);
 
-export default userModel;
+export default memberModel;
