@@ -18,6 +18,6 @@ memberRouter.post('/signup', signup);
 
 memberRouter.post('/edit', edit);
 
-memberRouter.delete('/signout', signout);
+memberRouter.delete('/signout/:id', signout);
 
 export default memberRouter;
