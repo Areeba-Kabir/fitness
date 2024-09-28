@@ -1,9 +1,9 @@
 import express from "express";
-
 import cors from "cors";
 
 import db_Connect from "./db/dbConfig.js";
 import memberRouter from "./routes/memberRoutes.js";
+import workoutRouter from "./routes/workoutRoutes.js";
 
 const app = express();
 
@@ -14,10 +14,8 @@ app.use(cors());
 //middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/member", memberRouter);
+app.use("/api/workout", workoutRouter);
 
-app.get("/", (req, res) => {
-  res.send("API is getting!");
-});
 
 app.listen(process.env.PORT, () => {
   db_Connect();

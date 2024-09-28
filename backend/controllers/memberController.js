@@ -88,6 +88,7 @@ const signout = async (req, res) => {
   try {
     const id = req.params.id;
     const { token } = req.headers || req.query.token;
+    console.log(token);
     const userExists = await memberModel.findById(id);
     if (!userExists) {
       return res
