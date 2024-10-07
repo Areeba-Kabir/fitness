@@ -57,6 +57,7 @@ const Navbar = () => {
             <ul className="flex list-none justify-end items-start flex-col gap-4">
               {navLinks.map((link) => (
                 <li
+                  key={link.id}
                   className={`${
                     active === link.title
                       ? "text-indigo-900"
